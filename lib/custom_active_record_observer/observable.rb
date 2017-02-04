@@ -3,9 +3,9 @@ module CustomActiveRecordObserver
     extend ActiveSupport::Concern
 
     included do
-      after_create  { CustomActiveRecordObserver.handle(self, :create,  changes) }
-      after_update  { CustomActiveRecordObserver.handle(self, :update,  changes) }
-      after_destroy { CustomActiveRecordObserver.handle(self, :destroy, changes) }
+      after_commit -> { CustomActiveRecordObserver.handle(self, :create, previous_changes) }, on: :create
+      after_commit -> { CustomActiveRecordObserver.handle(self, :update, previous_changes) }, on: :update
+      after_commit -> { CustomActiveRecordObserver.handle(self, :destroy, previous_changes) }, on: :destroy
     end
   end
 end
