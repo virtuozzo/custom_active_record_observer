@@ -13,6 +13,6 @@ module Dummy
     config.assets.enabled = true
     config.assets.version = '1.0'
     config.eager_load = false
-    config.paths['config/database'] = File.expand_path('../../../../dummy_database.yml', __dir__)
+    config.active_record.raise_in_transactional_callbacks = true
   end
 end

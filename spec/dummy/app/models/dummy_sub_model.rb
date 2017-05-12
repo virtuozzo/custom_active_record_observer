@@ -1,0 +1,2 @@
+class DummySubModel < DummyModel
+end

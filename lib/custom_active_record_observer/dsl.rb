@@ -1,5 +1,3 @@
-require_relative 'rule'
-
 module CustomActiveRecordObserver
   class DSL
     def initialize(block)
@@ -10,30 +8,32 @@ module CustomActiveRecordObserver
       @actions_and_rules ||= []
     end
 
-    def create(&block)
-      store(:create, Rule.new(block))
+    def on_create(&block)
+      store(:create, Rules::CreateRule.new(block))
     end
 
-    def destroy(&block)
-      store(:destroy, Rule.new(block))
+    def on_destroy(&block)
+      store(:destroy, Rules::DestroyRule.new(block))
+    end
+
+    def on_update(*attributes, &block)
+      pattern = attributes.pop if attributes.last.is_a?(Array)
+
+      attributes.each do |attribute|
+        store(:update, Rules::UpdateRule.new(block, attribute: attribute, pattern: pattern))
+      end
     end
 
     def on_add(*attributes, &block)
-      attributes.each do |attribute|
-        store(:update, Rule.new(block, attribute: attribute, condition: :on_add))
-      end
+      on_update(*attributes.push([nil, NotNil]), &block)
     end
 
     def on_remove(*attributes, &block)
-      attributes.each do |attribute|
-        store(:update, Rule.new(block, attribute: attribute, condition: :on_remove))
-      end
+      on_update(*attributes.push([NotNil, nil]), &block)
     end
 
     def on_change(*attributes, &block)
-      attributes.each do |attribute|
-        store(:update, Rule.new(block, attribute: attribute, condition: :on_change))
-      end
+      on_update(*attributes.push([NotNil, NotNil]), &block)
     end
 
     private

@@ -6,12 +6,14 @@ That is not something more complicated that generalized active record observer. 
 
 ```
 CustomActiveRecordObserver.observe :EngagedUser, :CompanyOwner, handler: CustomerEventPublisher.new do
-  create do |customer|
+  on_create do |customer|
     Events::CustomerSignedUp.new(data: {customer_id: customer.id}
   end
-  destroy do |customer|
+
+  on_destroy do |customer|
     Events::CustomerSignedOut.new(data: {…})
   end
+
   on_change :group_id do |customer|
     Events::CustomerGroupChanged.new(data: {…})
   end

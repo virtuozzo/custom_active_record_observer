@@ -1,9 +1,11 @@
-require_relative 'observable'
-
 module CustomActiveRecordObserver
   class Engine < ::Rails::Engine
     isolate_namespace CustomActiveRecordObserver
 
-    config.after_initialize { CustomActiveRecordObserver.extend_observable_models }
+    config.to_prepare do
+      CustomActiveRecordObserver.schema.freeze
+
+      CustomActiveRecordObserver::ModelsExtender.(CustomActiveRecordObserver.schema)
+    end
   end
 end

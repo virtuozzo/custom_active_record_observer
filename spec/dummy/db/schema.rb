@@ -14,8 +14,9 @@
 ActiveRecord::Schema.define(version: 20170129155607) do
 
   create_table "dummy_model", force: :cascade do |t|
-    t.string  "name", limit: 255
-    t.integer "age",  limit: 4
+    t.string  "type"
+    t.string  "name"
+    t.integer "age"
   end
 
 end
