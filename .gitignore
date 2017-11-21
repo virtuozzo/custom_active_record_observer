@@ -21,4 +21,4 @@ dump.rdb
 /.watchr*
 /.pryrc
 /.env.local
-
+pkg/*
