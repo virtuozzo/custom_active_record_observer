@@ -5,9 +5,10 @@ require 'custom_active_record_observer/version'
 Gem::Specification.new do |s|
   s.name    = 'custom_active_record_observer'
   s.version = CustomActiveRecordObserver::VERSION
-  s.authors = ['OnApp devs']
-  s.email   = ['onapp@onapp.com']
+  s.authors = ['OnApp Ltd.']
+  s.email   = ['support@onapp.com']
   s.summary = 'CustomActiveRecordObserver'
+  s.license = 'Apache 2.0'
 
   s.files = Dir['{app,config,db,lib}/**/*'] + %w(Rakefile README.md)
 
