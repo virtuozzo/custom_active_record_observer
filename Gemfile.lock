@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    custom_active_record_observer (0.0.1)
+    custom_active_record_observer (0.1.0)
       activerecord (>= 3.2, < 6)
       railties (>= 3.2, < 6)
 
@@ -103,7 +103,7 @@ DEPENDENCIES
   pry
   railties (= 4.2.7.1)
   rspec
-  sqlite3 (= 1.3.13)
+  sqlite3
 
 BUNDLED WITH
-   1.15.0
+   1.15.4

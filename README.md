@@ -1,8 +1,8 @@
 # CustomActiveRecordObserver
 
-`custom_active_record_observer` is a DSL to track system events based on AR callbacks.
+`custom_active_record_observer` is a DSL to track create/update/destroy operations based on AR callbacks.
 
-That is not something more complicated that generalized active record observer. This is just a DSL like:
+This is just a DSL like:
 
 ```
 CustomActiveRecordObserver.observe :EngagedUser, :CompanyOwner, handler: CustomerEventPublisher.new do

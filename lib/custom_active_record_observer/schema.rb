@@ -5,12 +5,12 @@ module CustomActiveRecordObserver
     delegate :fetch, to: :schema
 
     # {
-    #   'VirtualMachine' =>
+    #   'User' =>
     #     {
     #       update: [[rule_1, handler], [rule_2, handler]],
     #       create: [[rule_3, handler]]
     #     }
-    #   'Disk' =>
+    #   'Article' =>
     #     {
     #       destroy: [[rule5, handler]],
     #     }

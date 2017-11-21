@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'railties',     '>= 3.2', '< 6'
 
   s.add_development_dependency 'rspec'
+  s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'fuubar'
   s.add_development_dependency 'pry'
 end
