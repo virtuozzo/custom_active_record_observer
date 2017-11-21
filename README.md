@@ -2,7 +2,7 @@
 
 `custom_active_record_observer` is a DSL to track create/update/destroy operations based on AR callbacks.
 
-This is just a DSL like:
+Its a simple DSL similar to the code below:
 
 ```
 CustomActiveRecordObserver.observe :EngagedUser, :CompanyOwner, handler: CustomerEventPublisher.new do
@@ -21,5 +21,5 @@ CustomActiveRecordObserver.observe :EngagedUser, :CompanyOwner, handler: Custome
 end
 ```
 
-which can be put into a single initializer file instead of scattering around and having it in each AR model.
+which you can put into a single initializer file instead of scattering it around and having it in each AR model.
 That file is easier to remove in future. It incapsulates all the “inaccurate" dependencies.
