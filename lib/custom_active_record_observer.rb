@@ -6,7 +6,7 @@ module CustomActiveRecordObserver
   mattr_accessor :schema
   @@schema = Schema.new
 
-  def self.observe(*class_names, handler:, &block)
+  def self.observe(*class_names, handler: proc {}, &block)
     class_names.each do |class_name|
       DSL.new(block).actions_and_rules.each do |(action, rule)|
         schema.add_rule(class_name, action, rule, handler)

@@ -200,4 +200,20 @@ describe CustomActiveRecordObserver do
       dummy_model(name: name).tap(&:save).update_attributes(name: nil)
     end
   end
+
+  context 'no handler passed to definition' do
+    before do
+      described_class.observe :DummyModel do
+        on_create { :created_1 }
+      end
+
+      extend_models
+    end
+
+    it 'Nothing happens. Handler is not received' do
+      expect(handler).not_to receive(:call)
+
+      dummy_model.save
+    end
+  end
 end
