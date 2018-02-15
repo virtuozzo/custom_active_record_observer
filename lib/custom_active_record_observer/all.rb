@@ -1,4 +1,6 @@
 require_relative 'models_extender'
+require_relative 'observable/base'
+require_relative 'observable/paranoid'
 require_relative 'observable'
 require_relative 'engine'
 require_relative 'rules/all'

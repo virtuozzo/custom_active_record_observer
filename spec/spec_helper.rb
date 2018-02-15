@@ -5,6 +5,7 @@ require File.expand_path('dummy/config/environment', __dir__)
 require 'rspec'
 require 'custom_active_record_observer'
 require 'rake'
+require 'pry'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
