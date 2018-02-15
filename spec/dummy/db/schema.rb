@@ -11,12 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170129155607) do
+ActiveRecord::Schema.define(version: 20180215085022) do
 
   create_table "dummy_model", force: :cascade do |t|
     t.string  "type"
     t.string  "name"
     t.integer "age"
+  end
+
+  create_table "dummy_paranoid_models", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "deleted_at"
   end
 
 end
