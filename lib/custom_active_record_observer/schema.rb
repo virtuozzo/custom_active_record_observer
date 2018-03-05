@@ -20,6 +20,10 @@ module CustomActiveRecordObserver
     end
 
     def add_rule(class_name, action, rules, handler)
+      unless class_name.is_a?(Symbol)
+        class_name = class_name.to_s.to_sym
+      end
+
       schema[class_name] ||= {}
       schema[class_name][action] ||= []
 

@@ -26,7 +26,7 @@ describe CustomActiveRecordObserver do
         on_create { :created_1 }
       end
 
-      described_class.observe :DummySubModel, :DummyModel, handler: sub_handler do
+      described_class.observe :DummySubModel, 'DummyModel', handler: sub_handler do
         on_create { :created_2 }
       end
 

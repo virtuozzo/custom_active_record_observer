@@ -21,4 +21,5 @@ dump.rdb
 /.watchr*
 /.pryrc
 /.env.local
+/.yardoc
 pkg/*
