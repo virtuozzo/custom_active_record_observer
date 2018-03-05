@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.license = 'Apache 2.0'
   s.files = Dir['lib/**/*'] + %w(Rakefile README.md LICENSE)
   s.required_ruby_version = '>= 2.2.0'
+  s.has_rdoc = 'yard'
 
   s.description = <<-EOF
     This gem delivers a simple DSL based on the after_commit callback

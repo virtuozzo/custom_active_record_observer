@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    custom_active_record_observer (0.3.1)
+    custom_active_record_observer (0.3.2)
       activerecord (>= 3.2, < 6)
       railties (>= 3.2, < 6)
 

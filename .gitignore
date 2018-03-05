@@ -20,6 +20,7 @@ dump.rdb
 /zeus.json
 /.watchr*
 /.pryrc
+/.bundle
 /.env.local
 /.yardoc
 pkg/*
