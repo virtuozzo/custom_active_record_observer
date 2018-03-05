@@ -1,0 +1,8 @@
+--protected
+--no-private
+lib/custom_active_record_observer.rb
+lib/custom_active_record_observer/dsl.rb
+lib/custom_active_record_observer/not_nil.rb
+lib/custom_active_record_observer/observable/base.rb
+- README.md
+- LICENSE
