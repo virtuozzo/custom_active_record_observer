@@ -2,11 +2,6 @@
 
 source "https://rubygems.org"
 
-gem "awesome_nested_set", "3.1.1"
-
-group :development, :test do
-  gem "activerecord", "4.2.7.1"
-  gem "railties", "4.2.7.1"
-end
+gem "awesome_nested_set"
 
 gemspec path: "../"
