@@ -1,7 +1,7 @@
 appraise 'paranoia' do
-  gem 'paranoia', '~> 2.2'
+  gem 'paranoia'
 end
 
 appraise 'awesome_nested_set' do
-  gem 'awesome_nested_set', '3.1.1'
+  gem 'awesome_nested_set'
 end

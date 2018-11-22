@@ -2,11 +2,6 @@
 
 source "https://rubygems.org"
 
-gem "paranoia", "~> 2.2"
-
-group :development, :test do
-  gem "activerecord", "4.2.7.1"
-  gem "railties", "4.2.7.1"
-end
+gem "paranoia"
 
 gemspec path: "../"

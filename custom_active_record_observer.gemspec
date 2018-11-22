@@ -12,15 +12,14 @@ Gem::Specification.new do |s|
   s.license = 'Apache 2.0'
   s.files = Dir['lib/**/*'] + %w(Rakefile README.md LICENSE)
   s.required_ruby_version = '>= 2.2.0'
-  s.has_rdoc = 'yard'
 
   s.description = <<-EOF
     This gem delivers a simple DSL based on the after_commit callback
     which can be used as an alternative to hooks from inside the model
   EOF
 
-  s.add_dependency 'activerecord', '>= 3.2', '< 6'
-  s.add_dependency 'railties',     '>= 3.2', '< 6'
+  s.add_dependency 'activerecord', '~> 5.2'
+  s.add_dependency 'railties',     '~> 5.2'
 
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'sqlite3'
