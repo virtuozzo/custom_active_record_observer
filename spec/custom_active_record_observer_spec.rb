@@ -71,7 +71,7 @@ describe CustomActiveRecordObserver do
       expect(handler).to receive(:call).with(:updated)
       expect(handler).to receive(:call).with(:updated_from_nil_to_string)
 
-      model.update_attributes(name: name)
+      model.update(name: name)
     end
 
     it 'is handled if attributes was set to nil' do
@@ -80,7 +80,7 @@ describe CustomActiveRecordObserver do
       expect(handler).to receive(:call).with(:updated)
       expect(handler).to receive(:call).with(:updated_from_string_to_nil)
 
-      model.update_attributes(name: nil)
+      model.update(name: nil)
     end
 
     it 'is handled if attributes was changed from some not nil value to other value' do
@@ -89,7 +89,7 @@ describe CustomActiveRecordObserver do
       expect(handler).to receive(:call).with(:updated)
       expect(handler).to receive(:call).with(:updated_from_string_to_string)
 
-      model.update_attributes(name: "New #{name}")
+      model.update(name: "New #{name}")
     end
 
     it 'is handled if attributes was changed to some particular value' do
@@ -99,7 +99,7 @@ describe CustomActiveRecordObserver do
       expect(handler).to receive(:call).with(:updated_from_nil_to_string)
       expect(handler).to receive(:call).with(:updated_from_nil_to_my_name)
 
-      model.update_attributes(name: 'MyName')
+      model.update(name: 'MyName')
     end
 
     it 'is not handled if some other attribute was changed' do
@@ -141,13 +141,13 @@ describe CustomActiveRecordObserver do
     it 'handles nils' do
       expect(handler).to receive(:call).with(:removed)
 
-      dummy_model(name: name).tap(&:save).update_attributes(name: nil)
+      dummy_model(name: name).tap(&:save).update(name: nil)
     end
 
     it 'does not handle other changes' do
       expect(handler).not_to receive(:call)
 
-      dummy_model(name: name).tap(&:save).update_attributes(name: 'Name 2')
+      dummy_model(name: name).tap(&:save).update(name: 'Name 2')
     end
   end
 
@@ -163,13 +163,13 @@ describe CustomActiveRecordObserver do
     it 'handles nils' do
       expect(handler).to receive(:call).with(:added)
 
-      dummy_model(name: nil).tap(&:save).update_attributes(name: name)
+      dummy_model(name: nil).tap(&:save).update(name: name)
     end
 
     it 'does not handle other changes' do
       expect(handler).not_to receive(:call)
 
-      dummy_model(name: name).tap(&:save).update_attributes(name: 'Name 2')
+      dummy_model(name: name).tap(&:save).update(name: 'Name 2')
     end
   end
 
@@ -185,19 +185,19 @@ describe CustomActiveRecordObserver do
     it 'handles not nil changes' do
       expect(handler).to receive(:call).with(:changed)
 
-      dummy_model(name: name).tap(&:save).update_attributes(name: 'Name 2')
+      dummy_model(name: name).tap(&:save).update(name: 'Name 2')
     end
 
     it 'does not handle nil changes' do
       expect(handler).not_to receive(:call)
 
-      dummy_model(name: nil).tap(&:save).update_attributes(name: name)
+      dummy_model(name: nil).tap(&:save).update(name: name)
     end
 
     it 'does not handle nil changes' do
       expect(handler).not_to receive(:call)
 
-      dummy_model(name: name).tap(&:save).update_attributes(name: nil)
+      dummy_model(name: name).tap(&:save).update(name: nil)
     end
   end
 

@@ -11,15 +11,15 @@ Gem::Specification.new do |s|
   s.summary = 'A small handy library to track create/update/destroy actions on active_record models'
   s.license = 'Apache 2.0'
   s.files = Dir['lib/**/*'] + %w(Rakefile README.md LICENSE)
-  s.required_ruby_version = '>= 2.2.0'
+  s.required_ruby_version = '>= 2.5.6'
 
   s.description = <<-EOF
     This gem delivers a simple DSL based on the after_commit callback
     which can be used as an alternative to hooks from inside the model
   EOF
 
-  s.add_dependency 'activerecord', '~> 5.2'
-  s.add_dependency 'railties',     '~> 5.2'
+  s.add_dependency 'activerecord', '>= 5.2'
+  s.add_dependency 'railties',     '>= 5.2'
 
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'sqlite3'

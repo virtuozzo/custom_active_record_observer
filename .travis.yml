@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-  - 2.3.4
+  - 2.5.6
 script:
   - sh test.sh --skip-bundle
 cache: bundler
