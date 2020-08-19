@@ -1,5 +1,9 @@
 *.sqlite3
 
+Gemfile.lock
+
+/gemfiles/.bundle
+/gemfiles/*.lock
 /.bundle
 /coverage
 *.log
