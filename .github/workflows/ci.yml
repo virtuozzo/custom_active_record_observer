@@ -1,0 +1,27 @@
+name: CI
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+jobs:
+  test:
+    strategy:
+      matrix:
+        ruby:
+          - '2.6.6'
+          - '2.7.3'
+          - '3.0.5'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+      - run: 'bundle exec rake app:db:create'
+      - run: 'bundle exec rake app:db:migrate app:db:test:prepare'
+      - run: 'bundle exec appraisal install'
+      - run: "bundle exec rspec spec --exclude-pattern 'spec/appraisals/**/*_spec.rb'"
+      - run: "bundle exec appraisal paranoia rspec spec --exclude-pattern 'spec/appraisals/awesome_nested_set/**/*_spec.rb'"
+      - run: "bundle exec appraisal awesome_nested_set rspec spec --exclude-pattern 'spec/appraisals/paranoia/**/*_spec.rb'"
