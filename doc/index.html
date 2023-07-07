@@ -60,13 +60,12 @@
       <div id="content"><div id='filecontents'>
 <h1 id="customactiverecordobserver">CustomActiveRecordObserver</h1>
 
-<p><a href="https://rubygems.org/gems/custom_active_record_observer"><img src="https://badge.fury.io/rb/custom_active_record_observer.svg" alt="Gem Version" /></a>
-<a href="https://travis-ci.org/OnApp/custom_active_record_observer"><img src="https://travis-ci.org/OnApp/custom_active_record_observer.svg?branch=master" alt="Build Status" /></a></p>
+<p><a href="https://rubygems.org/gems/custom_active_record_observer"><img src="https://badge.fury.io/rb/custom_active_record_observer.svg" alt="Gem Version" /></a></p>
 
 <p>A DSL to track create/update/destroy operations based on AR callbacks.</p>
 
 <h3 id="installation">Installation</h3>
-<p>Add the following code to your <code>Gemfile</code> and run bundle install</p>
+<p>Add the following code to your <code>Gemfile</code></p>
 
 <p><code>ruby
 # Gemfile
@@ -74,8 +73,9 @@ gem 'custom_active_record_observer'
 </code>
 and run <code>bundle install</code></p>
 
-<p>Then add path to that file to <code>InfoHub</code> paths (in <code>config/initializers/events_observation.rb</code>)
+<p>Then add the observation rules (in <code>config/initializers/events_observation.rb</code>)
 <code>ruby
+# config/initializers/events_observation.rb
 CustomActiveRecordObserver.observe 'User' do
   on_create do |user|
     # do something
@@ -85,14 +85,14 @@ end
 
 <p>In this expample we track model <code>User</code>. If a new user is created, AR <code>:after_commit</code> callback is launched and the block in <code>on_create</code> executes.</p>
 
-<p>We can track by real classes (which is not always possible, since that code is better to be placed in <code>config/initializers</code>. But passing strings or symbols is also allowed:
+<p>We can track by real classes (which is not always possible, since that code is better to be placed in <code>config/initializers</code>). But passing strings or symbols is also allowed:
 <code>ruby
   CustomActiveRecordObserver.observe User, :EngagedUser, 'CompanyOwner' { ... }
 </code>
 Here we track three classes.</p>
 
 <h3 id="usage">Usage</h3>
-<p>How do we use <code>custom_active_record_observer</code> in the wild? For instance, in this example we publish <code>UserRegisteredEvent</code> on user creation. (using <code>rails_event_store</code> gem). This is pretty useful trade-off if there are no operations or aggregates introduced in the system achitecture.</p>
+<p>How do we use <code>custom_active_record_observer</code> in the wild? For instance, in this example we publish <code>UserRegisteredEvent</code> on user creation. (using <code>rails_event_store</code> gem). This is a pretty useful trade-off if there are no operations or aggregates introduced in the system architecture.</p>
 
 <p><code>ruby
 CustomActiveRecordObserver.observe 'User' do
@@ -152,11 +152,11 @@ end
 <p>See <code>LICENSE</code> file.</p>
 
 <h2 id="contributing">Contributing</h2>
-<p>Bug reports and pull requests are welcome on GitHub at https://github.com/OnApp/custom_active_record_observer.</p>
+<p>Bug reports and pull requests are welcome on GitHub at https://github.com/virtuozzo/custom_active_record_observer.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Mon Mar  5 16:16:36 2018 by
+  Generated on Fri Jul  7 14:54:41 2023 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.12 (ruby-2.3.4).
 </div>

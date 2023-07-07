@@ -5,9 +5,9 @@ require 'custom_active_record_observer/version'
 Gem::Specification.new do |s|
   s.name = 'custom_active_record_observer'
   s.version = CustomActiveRecordObserver::VERSION
-  s.author = 'OnApp Ltd.'
-  s.email = 'support@onapp.com'
-  s.homepage = 'https://github.com/OnApp/custom_active_record_observer'
+  s.authors = ['Virtuozzo']
+  s.email = 'igor.sidorov@virtuozzo.com'
+  s.homepage = 'https://github.com/virtuozzo/custom_active_record_observer'
   s.summary = 'A small handy library to track create/update/destroy actions on active_record models'
   s.license = 'Apache 2.0'
   s.files = Dir['lib/**/*'] + %w(Rakefile README.md LICENSE)
