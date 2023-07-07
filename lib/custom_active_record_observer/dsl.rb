@@ -2,7 +2,7 @@
 module CustomActiveRecordObserver
   # A main methods that are supposed to be used within CustomActiveRecordObserver
   #
-  # @author OnApp Ltd.
+  # @author Virtuozzo
   class DSL
     attr_reader :actions_and_rules
 

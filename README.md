@@ -1,10 +1,8 @@
 [gem]: https://rubygems.org/gems/custom_active_record_observer
-[travis]: https://travis-ci.org/OnApp/custom_active_record_observer
 
 # CustomActiveRecordObserver
 
 [![Gem Version](https://badge.fury.io/rb/custom_active_record_observer.svg)][gem]
-[![Build Status](https://travis-ci.org/OnApp/custom_active_record_observer.svg?branch=master)][travis]
 
 A DSL to track create/update/destroy operations based on AR callbacks.
 
@@ -96,4 +94,4 @@ end
 See `LICENSE` file.
 
 ## Contributing
-Bug reports and pull requests are welcome on GitHub at https://github.com/OnApp/custom_active_record_observer.
+Bug reports and pull requests are welcome on GitHub at https://github.com/virtuozzo/custom_active_record_observer.
